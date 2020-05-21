@@ -1,0 +1,57 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode=production && npm run copy_static_assets",
+    "dev": "webpack && npm run copy_static_assets && concurrently \"webpack --watch\" \"nodemon dist\"",
+    "test": "npm run webpack && concurrently \"npm run webpack --watch\" \"mocha --watch\"",
+    "start": "NODE_ENV=production node dist/index.js",
+    "copy_static_assets": "node copyStaticAssets.js",
+    "webpack": "webpack --config webpack.test.js"
+  },
+  "engines": {
+    "node": "12.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarvelousWololo/ssr-react"
+  },
+  "keywords": [
+    "react",
+    "expressjs",
+    "react-router",
+    "server-side-rendering"
+  ],
+  "author": "Marvelous Wololo <marvelous.wololo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "1.7.4",
+    "express": "4.17.1",
+    "markdown-to-jsx": "6.11.0",
+    "react": "16.13.1",
+    "react-charts": "^2.0.0-beta.6",
+    "react-dom": "16.13.1",
+    "react-linechart": "^1.1.12",
+    "react-router-dom": "5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.0",
+    "@babel/preset-react": "7.9.4",
+    "babel-loader": "8.1.0",
+    "babel-preset-react": "6.24.1",
+    "chai": "4.2.0",
+    "concurrently": "5.1.0",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "fs-extra": "9.0.0",
+    "mocha": "7.1.1",
+    "nodemon": "2.0.2",
+    "react-addons-test-utils": "15.6.2",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11",
+    "webpack-node-externals": "1.7.2"
+  }
+}
